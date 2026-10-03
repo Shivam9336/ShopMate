@@ -26,13 +26,13 @@ const addOrderItems = async (req, res) => {
         <p>Thank you for shopping with ShopMate!</p>
       `;
 
-      await sendEmail({
+      res.status(201).json(createdOrder);
+
+      sendEmail({
         email: req.user.email,
         subject: 'ShopMate - Order Confirmation',
         message
       });
-
-      res.status(201).json(createdOrder);
     }
   } catch (error) {
     res.status(500).json({ message: error.message });

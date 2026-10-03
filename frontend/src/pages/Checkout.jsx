@@ -106,6 +106,8 @@ const Checkout = () => {
     if (saveOrderRes.ok) {
       dispatch(clearCart());
       navigate('/ordersuccess');
+    } else {
+      alert(`Order could not be confirmed (HTTP ${saveOrderRes.status}). Check your order history before trying again.`);
     }
   };
 
@@ -118,7 +120,10 @@ const Checkout = () => {
     }
     const fallback = window.confirm('Click OK to bypass payment and simulate a successful order (for testing purposes). \n Click Cancel to proceed with the payment gateway (Razorpay).');
     if (fallback) {
-      bypassPayment();
+      bypassPayment().catch((error) => {
+        console.error('Could not confirm demo checkout:', error);
+        alert('We could not confirm your order. Check your order history before trying again.');
+      });
     } else {
       handlePayment();
     }
