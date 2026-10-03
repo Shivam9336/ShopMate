@@ -47,6 +47,10 @@ ShopMate is a demo e-commerce application built on the MERN stack. Customers can
 
 It's a good reference project for learning how a production-style MERN app fits together: JWT authentication, role-based authorization, image uploads, payment verification, and a Redux-powered cart.
 
+## 🌐 Live Demo
+
+Try ShopMate here: [https://shopmate-j18w.onrender.com/shop](https://shopmate-j18w.onrender.com/shop)
+
 ---
 
 ## ✨ Features
